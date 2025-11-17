@@ -52,7 +52,7 @@ class SearchGifsNotifier extends AsyncNotifier<SearchGifListState> {
 
       state = AsyncValue.data(
         currentState.copyWith(
-          items: [...currentState.items, ...pageData.items],
+          items: pageData.items,
           hasNextPage: pageData.hasNextPage,
           isLoadingMore: false,
         ),

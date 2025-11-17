@@ -1,4 +1,4 @@
-import 'package:gif_search_app/src/main/domain/entities/preview_gif.dart';
+import 'package:gif_search_app/src/main/domain/entities/gif.dart';
 
 class SearchGifsParams {
   final String query;
@@ -25,7 +25,7 @@ class SearchGifsParams {
 }
 
 class SearchGifsResponse {
-  final List<PreviewGif> items;
+  final List<Gif> items;
   final bool hasNextPage;
   final int pageNum;
 
@@ -34,4 +34,16 @@ class SearchGifsResponse {
     required this.hasNextPage,
     required this.pageNum,
   });
+
+  SearchGifsResponse copyWith({
+    List<Gif>? items,
+    bool? hasNextPage,
+    int? pageNum,
+  }) {
+    return SearchGifsResponse(
+      items: items ?? this.items,
+      hasNextPage: hasNextPage ?? this.hasNextPage,
+      pageNum: pageNum ?? this.pageNum,
+    );
+  }
 }

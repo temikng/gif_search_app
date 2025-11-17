@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SearchGifListState {
 
- List<PreviewGif> get items; bool get hasNextPage; bool get isLoadingMore; Object? get error;
+ List<Gif> get items; bool get hasNextPage; bool get isLoadingMore; Object? get error;
 /// Create a copy of SearchGifListState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -45,7 +45,7 @@ abstract mixin class $SearchGifListStateCopyWith<$Res>  {
   factory $SearchGifListStateCopyWith(SearchGifListState value, $Res Function(SearchGifListState) _then) = _$SearchGifListStateCopyWithImpl;
 @useResult
 $Res call({
- List<PreviewGif> items, bool hasNextPage, bool isLoadingMore, Object? error
+ List<Gif> items, bool hasNextPage, bool isLoadingMore, Object? error
 });
 
 
@@ -65,7 +65,7 @@ class _$SearchGifListStateCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? items = null,Object? hasNextPage = null,Object? isLoadingMore = null,Object? error = freezed,}) {
   return _then(_self.copyWith(
 items: null == items ? _self.items : items // ignore: cast_nullable_to_non_nullable
-as List<PreviewGif>,hasNextPage: null == hasNextPage ? _self.hasNextPage : hasNextPage // ignore: cast_nullable_to_non_nullable
+as List<Gif>,hasNextPage: null == hasNextPage ? _self.hasNextPage : hasNextPage // ignore: cast_nullable_to_non_nullable
 as bool,isLoadingMore: null == isLoadingMore ? _self.isLoadingMore : isLoadingMore // ignore: cast_nullable_to_non_nullable
 as bool,error: freezed == error ? _self.error : error ,
   ));
@@ -152,7 +152,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<PreviewGif> items,  bool hasNextPage,  bool isLoadingMore,  Object? error)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<Gif> items,  bool hasNextPage,  bool isLoadingMore,  Object? error)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SearchGifListState() when $default != null:
 return $default(_that.items,_that.hasNextPage,_that.isLoadingMore,_that.error);case _:
@@ -173,7 +173,7 @@ return $default(_that.items,_that.hasNextPage,_that.isLoadingMore,_that.error);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<PreviewGif> items,  bool hasNextPage,  bool isLoadingMore,  Object? error)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<Gif> items,  bool hasNextPage,  bool isLoadingMore,  Object? error)  $default,) {final _that = this;
 switch (_that) {
 case _SearchGifListState():
 return $default(_that.items,_that.hasNextPage,_that.isLoadingMore,_that.error);case _:
@@ -193,7 +193,7 @@ return $default(_that.items,_that.hasNextPage,_that.isLoadingMore,_that.error);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<PreviewGif> items,  bool hasNextPage,  bool isLoadingMore,  Object? error)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<Gif> items,  bool hasNextPage,  bool isLoadingMore,  Object? error)?  $default,) {final _that = this;
 switch (_that) {
 case _SearchGifListState() when $default != null:
 return $default(_that.items,_that.hasNextPage,_that.isLoadingMore,_that.error);case _:
@@ -208,11 +208,11 @@ return $default(_that.items,_that.hasNextPage,_that.isLoadingMore,_that.error);c
 
 
 class _SearchGifListState implements SearchGifListState {
-  const _SearchGifListState({final  List<PreviewGif> items = const [], this.hasNextPage = true, this.isLoadingMore = false, this.error = null}): _items = items;
+  const _SearchGifListState({final  List<Gif> items = const [], this.hasNextPage = true, this.isLoadingMore = false, this.error = null}): _items = items;
   
 
- final  List<PreviewGif> _items;
-@override@JsonKey() List<PreviewGif> get items {
+ final  List<Gif> _items;
+@override@JsonKey() List<Gif> get items {
   if (_items is EqualUnmodifiableListView) return _items;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_items);
@@ -252,7 +252,7 @@ abstract mixin class _$SearchGifListStateCopyWith<$Res> implements $SearchGifLis
   factory _$SearchGifListStateCopyWith(_SearchGifListState value, $Res Function(_SearchGifListState) _then) = __$SearchGifListStateCopyWithImpl;
 @override @useResult
 $Res call({
- List<PreviewGif> items, bool hasNextPage, bool isLoadingMore, Object? error
+ List<Gif> items, bool hasNextPage, bool isLoadingMore, Object? error
 });
 
 
@@ -272,7 +272,7 @@ class __$SearchGifListStateCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? items = null,Object? hasNextPage = null,Object? isLoadingMore = null,Object? error = freezed,}) {
   return _then(_SearchGifListState(
 items: null == items ? _self._items : items // ignore: cast_nullable_to_non_nullable
-as List<PreviewGif>,hasNextPage: null == hasNextPage ? _self.hasNextPage : hasNextPage // ignore: cast_nullable_to_non_nullable
+as List<Gif>,hasNextPage: null == hasNextPage ? _self.hasNextPage : hasNextPage // ignore: cast_nullable_to_non_nullable
 as bool,isLoadingMore: null == isLoadingMore ? _self.isLoadingMore : isLoadingMore // ignore: cast_nullable_to_non_nullable
 as bool,error: freezed == error ? _self.error : error ,
   ));

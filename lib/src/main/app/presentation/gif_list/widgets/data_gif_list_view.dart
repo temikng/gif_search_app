@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gif_search_app/src/main/app/models/search_gif_list_state.dart';
+import 'package:gif_search_app/src/main/app/presentation/gif_list/widgets/empty_gif_list_view.dart';
 import 'package:gif_search_app/src/main/app/presentation/gif_list/widgets/error_loading_more_gifs_view.dart';
 import 'package:gif_search_app/src/main/app/presentation/gif_list/widgets/loading_more_gifs_view.dart';
 import 'package:gif_search_app/src/main/app/presentation/gif_list/widgets/preview_gif_item.dart';
 import 'package:gif_search_app/src/main/app/providers/app_coordinator_provider.dart';
-import 'package:gif_search_app/src/main/domain/entities/preview_gif.dart';
+import 'package:gif_search_app/src/main/domain/entities/gif.dart';
 
 class DataGifListView extends ConsumerStatefulWidget {
   final SearchGifListState data;
@@ -22,12 +23,16 @@ class DataGifListView extends ConsumerStatefulWidget {
 }
 
 class _DataGifListViewState extends ConsumerState<DataGifListView> {
-  void _onItemClick(PreviewGif gif) {
+  void _onItemClick(Gif gif) {
     ref.read(appCoordinatorProvider).goToGif(gif.id);
   }
 
   @override
   Widget build(BuildContext context) {
+    if (widget.data.items.isEmpty) {
+      return EmptyGifListView();
+    }
+
     return CustomScrollView(
       controller: widget.scrollController,
       slivers: <Widget>[
@@ -43,10 +48,7 @@ class _DataGifListViewState extends ConsumerState<DataGifListView> {
           delegate: SliverChildBuilderDelegate((c, index) {
             final gif = widget.data.items[index];
 
-            return PreviewGifItem(
-              onTap: () => _onItemClick(gif),
-              previewGif: gif,
-            );
+            return PreviewGifItem(onTap: () => _onItemClick(gif), gif: gif);
           }, childCount: widget.data.items.length),
         ),
         if (widget.data.hasNextPage)

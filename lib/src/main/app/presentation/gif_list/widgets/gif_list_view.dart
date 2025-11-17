@@ -40,16 +40,14 @@ class _GifListViewState extends ConsumerState<GifListView> {
     ref.read(searchGifsProvider.notifier).fetchNextPage();
   }
 
-  Future<void> _onRefresh(WidgetRef ref) async {
-    ref.read(searchGifsProvider.notifier).refresh();
-  }
-
   void _onSearchGifsParamsChanged(
     SearchGifsParams? prev,
     SearchGifsParams next,
   ) {
     if (prev?.query != next.query) {
-      _scrollController.jumpTo(0);
+      try {
+        _scrollController.jumpTo(0);
+      } catch (e) {}
     }
   }
 
@@ -59,16 +57,11 @@ class _GifListViewState extends ConsumerState<GifListView> {
 
     ref.listen(searchGifsParamsProvider, _onSearchGifsParamsChanged);
 
-    return RefreshIndicator(
-      onRefresh: () => _onRefresh(ref),
-      child: asyncSearchGifListState.when(
-        loading: () => LoadingGifListView(),
-        error: (error, stackTrace) => ErrorGifListView(error: error),
-        data: (listState) => DataGifListView(
-          data: listState,
-          scrollController: _scrollController,
-        ),
-      ),
+    return asyncSearchGifListState.when(
+      loading: () => LoadingGifListView(),
+      error: (error, stackTrace) => ErrorGifListView(error: error),
+      data: (listState) =>
+          DataGifListView(data: listState, scrollController: _scrollController),
     );
   }
 }
