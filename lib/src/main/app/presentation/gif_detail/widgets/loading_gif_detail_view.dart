@@ -7,6 +7,6 @@ class LoadingGifDetailView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Center(child: CustomProgressIndicator());
+    return Center(child: CustomProgressIndicator());
   }
 }

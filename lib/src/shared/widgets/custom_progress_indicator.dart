@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class CustomProgressIndicator extends StatelessWidget {
-  const CustomProgressIndicator({super.key});
+  double size;
+
+  CustomProgressIndicator({super.key, this.size = 50.0});
 
   @override
   Widget build(BuildContext context) {
-    return const SpinKitFadingCircle(color: Colors.blueGrey, size: 50.0);
+    return SpinKitFadingCircle(color: Colors.blueGrey, size: size);
   }
 }

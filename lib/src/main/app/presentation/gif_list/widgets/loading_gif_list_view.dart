@@ -6,6 +6,6 @@ class LoadingGifListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: CustomProgressIndicator());
+    return Center(child: CustomProgressIndicator());
   }
 }

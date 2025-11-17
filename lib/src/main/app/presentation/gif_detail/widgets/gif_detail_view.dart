@@ -17,7 +17,7 @@ class GifDetailView extends ConsumerWidget {
         children: [
           CachedNetworkImage(
             imageUrl: gif.url,
-            placeholder: (context, url) => const CustomProgressIndicator(),
+            placeholder: (context, url) => CustomProgressIndicator(),
             errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
           Padding(
